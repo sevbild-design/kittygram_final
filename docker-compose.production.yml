@@ -12,7 +12,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    image: wantedpa/kittygram_backend
+    image: ${DOCKER_USERNAME}/kittygram_backend
     restart: always
     env_file: .env
     volumes:
@@ -22,13 +22,13 @@ services:
       - db
 
   frontend:
-    image: wantedpa/kittygram_frontend
+    image: ${DOCKER_USERNAME}/kittygram_frontend
     command: cp -r /app/build/. /static/
     volumes:
       - static:/static
 
   gateway:
-    image: wantedpa/kittygram_gateway
+    image: ${DOCKER_USERNAME}/kittygram_gateway
     restart: always
     ports:
       - 9000:80
