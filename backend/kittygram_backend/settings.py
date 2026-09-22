@@ -18,9 +18,10 @@ ALLOWED_HOSTS = os.getenv(
     'localhost,127.0.0.1'
 ).split(',')
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://sprint.bounceme.net',
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://sprint.bounceme.net',
+# ]
+CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS'),]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
